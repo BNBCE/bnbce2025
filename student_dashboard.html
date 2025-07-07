@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Student Dashboard</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body onload="loadStudent()">
+  <h2 class="center">Student Dashboard</h2>
+  <div class="table-container" id="studentInfo"></div>
+  <div class="center"><a href="index.html" class="logout-button">Logout</a></div>
+
+  <script>
+    function loadStudent() {
+      const student = JSON.parse(localStorage.getItem("student"));
+      if (!student) {
+        window.location.href = "student_login.html";
+        return;
+      }
+      document.getElementById('studentInfo').innerHTML = `
+        <table>
+          <tr><th>Name</th><td>${student.name}</td></tr>
+          <tr><th>Course</th><td>${student.course}</td></tr>
+          <tr><th>Batch</th><td>${student.batch}</td></tr>
+        </table>`;
+    }
+  </script>
+</body>
+</html>

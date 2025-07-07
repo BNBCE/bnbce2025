@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Admin Login</title>
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+  <div class="login-container">
+    <h2>Admin Login</h2>
+    <form onsubmit="return adminLogin(event)">
+      <input type="text" id="adminUsername" placeholder="Username" required><br>
+      <input type="password" id="adminPassword" placeholder="Password" required><br>
+      <button type="submit" class="login-button">Login</button>
+    </form>
+  </div>
+  <script>
+    function adminLogin(e) {
+      e.preventDefault();
+      const user = document.getElementById('adminUsername').value;
+      const pass = document.getElementById('adminPassword').value;
+      if (user === 'admin' && pass === 'password') {
+        window.location.href = 'admin_dashboard.html';
+      } else {
+        alert("Invalid admin credentials!");
+      }
+    }
+  </script>
+</body>
+</html>
